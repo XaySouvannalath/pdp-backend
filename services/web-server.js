@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const database = require('./database')
 //import needed local config file
 const webServerConfig = require('../config/web-server')
-
+const router = require('../services/router')
 
 
 let httpServer
@@ -30,6 +30,7 @@ function initialize() {
             const result = await database.exec('SELECT * FROM TB_COURSE WHERE COURSEID = ?', [req.params.id])
             res.end(JSON.stringify(result));
         })
+        app.use('/api', router)
 
         httpServer.listen(webServerConfig.port)
             .on('listening', () => {

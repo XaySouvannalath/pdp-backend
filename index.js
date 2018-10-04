@@ -8,7 +8,7 @@ const database = require('./services/database')
 
 async function startUp() {
 
-
+//hello world phase 1
     //handle starting the database
 /*     try{
         console.log('Inintializing Database Module...')
